@@ -55,3 +55,37 @@ pip install -r requirements.txt
 From within the virtual environment, demonstrate your ability to run the Python script from the command-line:
 
 ``python app/robo_advisor.py
+Basic Requirements
+
+Repository Requirements
+
+Your project repository should contain an "app" directory with a "robo_advisor.py" file inside (i.e. "app/robo_advisor.py").
+
+Your project repository should contain a "README.md" file. The README file should provide instructions to help someone else install, setup, and run your program. This includes instructions for installing package dependencies, for example using Pip. It also includes instructions for setting an environment variable named ALPHAVANTAGE_API_KEY (see "Security Requirements" section below).
+
+Your project repository should contain a file called ".gitignore" which prevents the ".env" file and its secret credentials from being tracked in version control. The ".gitignore" file generated during the GitHub repo creation process should already do this, otherwise you can create your own ".gitignore" file and place inside the following contents:
+
+# this is the ".gitignore" file
+
+# ignore secret environment variable values in the ".env" file:
+.env
+Finally, your project repository should contain a "data" directory with another ".gitignore" file inside. In the "data/.gitignore", place inside the following contents to track the empty directory (thus allowing CSV files to be written there without error), while ignoring the CSV files themselves:
+
+# this is the "data/.gitignore" file
+
+# ignore all files in this "data" directory:
+*
+
+# except this ".gitignore" file:
+!.gitignore
+Security Requirements
+
+Your program will need an API Key to issue requests to the AlphaVantage API. But the program's source code should absolutely not include the secret API Key value. Instead, you should set an environment variable called ALPHAVANTAGE_API_KEY, and your program should read the API Key from this environment variable at run-time.
+
+You are encouraged to use a "dotenv" approach to setting project-specific environment variables by using a file called ".env" in conjunction with the dotenv package. Example ".env" contents:
+
+# this is the ".env" file
+
+ALPHAVANTAGE_API_KEY="abc123"
+
+The ".env" file should absolutely not be tracked in version control or included in your GitHub repository. Use a local ".gitignore" file for this purpose.
