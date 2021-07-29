@@ -5,9 +5,14 @@
 #pip install -r requirements.txt
 
 import requests #still need to import even tho its installed. Just do this once
+from dotenv import load_dotenv
+import os
 
 
-request_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey={ALPHAVANTAGE_API_KEY}&datatype=csv"
+symbol = "MSFT"
+api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
+
+request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}&datatype=csv"
 
 from pandas import read_csv
 price_df = read_csv(request_url) 
@@ -29,7 +34,6 @@ df = pd.DataFrame(price_df, columns=["timestamp", "open", "high", "low", "close"
 
 df.to_csv("data/prices.csv", index=False)
 
-quit()
 
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
