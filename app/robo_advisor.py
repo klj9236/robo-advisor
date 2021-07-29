@@ -4,6 +4,18 @@
 
 #pip install -r requirements.txt
 
+import requests #still need to import even tho its installed. Just do this once
+
+
+request_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey={ALPHAVANTAGE_API_KEY}&datatype=csv"
+
+from pandas import read_csv
+stats_df = read_csv(request_url) 
+print(type(stats_df))
+print(stats_df.head())
+
+quit() #stops the rest of the program from running
+
 
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
