@@ -12,9 +12,11 @@ symbol = input("PLEASE ENTER STOCK SYMBOL: ")
 print(symbol)
 
 #validation symbol
-if (len(symbol)>=1<=5):
+if (len(symbol)>=1<=5 and symbol.isalpha()):
     print("VALID SYMBOL")
-
+else:
+    print("INVALID SYMBOL")
+    quit()
 
 api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
 
