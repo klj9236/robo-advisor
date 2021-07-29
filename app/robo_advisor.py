@@ -23,13 +23,13 @@ recent_low = price_df["low"].min()
 recent_high = price_df["high"].max()
 latest_close = price_df.iloc[0,4]
 
-print(f"LATEST DAY: {(latest_day)}")
-print(f"LATEST CLOSE: {to_usd(latest_close)}")
-print(f"RECENT HIGH: {to_usd(float(recent_high))}")
-print(f"RECENT LOW: {to_usd(float(recent_low))}")
+import pandas as pd
 
-quit() #stops the rest of the program from running
+df = pd.DataFrame(price_df, columns=["timestamp", "open", "high", "low", "close", "volume"])
 
+df.to_csv("data/prices.csv", index=False)
+
+quit()
 
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
@@ -47,3 +47,5 @@ print("RECOMMENDATION REASON: TODO")
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
+
+
