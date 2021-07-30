@@ -25,9 +25,6 @@ price_df = read_csv(request_url)
 if (len(symbol)>=1<=5 and symbol.isalpha()):
     print("VALID SYMBOL")
 
-#elif symbol not in price_df:
-#    print("SORRY SYMBOL NOT FOUND")
-
 else: 
     print("INVALID SYMBOL")
     quit()
